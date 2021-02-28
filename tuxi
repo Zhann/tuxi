@@ -12,19 +12,11 @@ LANGUAGE=""
 ###############################
 
 sed () {
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-    gsed "${@}"
-  else
-    sed "${@}"
-  fi
+  [ "$OSTYPE" = "darwin"* ] && gsed "$@" && sed "$@"
 }
 
 paste() {
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-    gpaste "${@}"
-  else
-    paste "${@}"
-  fi
+  [ "$OSTYPE" = "darwin"* ] && gpaste "$@" && paste "$@"
 }
 
 help_text () {
